@@ -1,0 +1,263 @@
+/* ============================================================= */
+/* estilos.css - Centro Veterinario PatitasSanas                 */
+/* Diseño moderno y minimalista con paleta naranja pastel.        */
+/* ============================================================= */
+
+/* Tipografía moderna Poppins (se carga desde Google Fonts).
+   Para cambiarla, sustituye "Poppins" por otra fuente en esta
+   línea @import y en la propiedad font-family del body. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ---------- PALETA DE COLORES DEFINIDA (variables) ---------- */
+:root {
+    --naranja-principal: #f5a97f;   /* Naranja pastel principal */
+    --naranja-oscuro:    #e8926a;   /* Para estados hover */
+    --naranja-claro:     #fdf1e8;   /* Tinte muy suave para fondos */
+    --fondo:             #fbfaf8;   /* Blanco cálido de fondo */
+    --superficie:        #ffffff;   /* Tarjetas */
+    --borde:             #eee7e0;   /* Bordes sutiles */
+    --texto:             #3a3a3a;   /* Texto principal */
+    --texto-suave:       #9a938c;   /* Texto secundario */
+    --rojo-eliminar:     #e88a7d;   /* Rojo pastel para eliminar */
+    --rojo-hover:        #d9756a;
+    --azul-editar:       #8fb3d9;   /* Azul pastel para editar */
+    --azul-hover:        #789ec4;
+}
+
+/* ---------- ESTILOS GENERALES ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+    line-height: 1.6;
+    font-weight: 400;
+    padding: 40px 16px;
+}
+
+.contenedor {
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+/* ---------- CABECERA ---------- */
+.cabecera {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.cabecera h1 {
+    color: var(--texto);
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+/* Detalle minimalista: una línea naranja debajo del título */
+.cabecera h1::after {
+    content: "";
+    display: block;
+    width: 54px;
+    height: 4px;
+    background-color: var(--naranja-principal);
+    border-radius: 4px;
+    margin: 12px auto 0;
+}
+
+/* ---------- TARJETAS (contenedores de sección) ---------- */
+.tarjeta {
+    background-color: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 26px;
+}
+
+.tarjeta h2 {
+    color: var(--texto);
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 22px;
+}
+
+/* ============================================================= */
+/* ESTILO DIFERENCIADO PARA EL FORMULARIO                         */
+/* ============================================================= */
+.campo {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.campo label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 7px;
+    color: var(--texto-suave);
+}
+
+.campo input {
+    padding: 12px 14px;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--texto);
+    background-color: var(--fondo);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo input:focus {
+    outline: none;
+    border-color: var(--naranja-principal);
+    box-shadow: 0 0 0 3px rgba(245, 169, 127, 0.2);
+    background-color: var(--superficie);
+}
+
+/* ---------- BOTONES ---------- */
+.btn {
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: inherit;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-registrar {
+    background-color: var(--naranja-principal);
+    color: #ffffff;
+    padding: 13px 26px;
+    margin-top: 6px;
+}
+
+.btn-registrar:hover {
+    background-color: var(--naranja-oscuro);
+}
+
+.btn-eliminar {
+    background-color: var(--rojo-eliminar);
+    color: #ffffff;
+    padding: 8px 15px;
+    font-size: 0.82rem;
+}
+
+.btn-eliminar:hover {
+    background-color: var(--rojo-hover);
+}
+
+/* ============================================================= */
+/* ESTILO DIFERENCIADO PARA LA TABLA (legible, minimalista con    */
+/* alternancia de color en las filas)                            */
+/* ============================================================= */
+.tabla-pacientes {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.tabla-pacientes thead th {
+    background-color: var(--naranja-claro);
+    color: var(--naranja-oscuro);
+    font-weight: 600;
+    text-align: left;
+    padding: 14px 16px;
+    border-bottom: 2px solid var(--naranja-principal);
+}
+
+.tabla-pacientes td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--borde);
+    color: var(--texto);
+}
+
+/* Alternancia de color en las filas para mejorar la legibilidad */
+.tabla-pacientes tbody tr:nth-child(even) {
+    background-color: var(--naranja-claro);
+}
+
+.tabla-pacientes tbody tr:hover {
+    background-color: #fbe6d7;
+}
+
+.sin-datos {
+    text-align: center;
+    font-style: italic;
+    color: var(--texto-suave);
+    padding: 22px;
+}
+
+/* ---------- ACCIONES EN LA TABLA (Editar / Eliminar juntos) ---------- */
+.acciones {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Los .btn que son enlaces <a> necesitan estos ajustes para verse
+   igual que los botones normales. */
+.btn-editar,
+.btn-cancelar {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-editar {
+    background-color: var(--azul-editar);
+    color: #ffffff;
+    padding: 8px 15px;
+    font-size: 0.82rem;
+}
+
+.btn-editar:hover {
+    background-color: var(--azul-hover);
+}
+
+/* ---------- BOTONES DE LA PÁGINA DE EDICIÓN ---------- */
+.acciones-editar {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.btn-cancelar {
+    background-color: var(--fondo);
+    color: var(--texto-suave);
+    border: 1px solid var(--borde);
+    padding: 13px 26px;
+}
+
+.btn-cancelar:hover {
+    background-color: var(--borde);
+}
+
+/* ---------- RESPONSIVE BÁSICO ---------- */
+@media (max-width: 600px) {
+    body {
+        padding: 24px 12px;
+    }
+    .tarjeta {
+        padding: 20px;
+    }
+    .cabecera h1 {
+        font-size: 1.4rem;
+    }
+    .tabla-pacientes {
+        font-size: 0.82rem;
+    }
+    .tabla-pacientes thead th,
+    .tabla-pacientes td {
+        padding: 10px;
+    }
+}

@@ -1,0 +1,10 @@
+# Base de datos generada automáticamente
+patitassanas.db
+
+# Cachés y archivos temporales de Python
+__pycache__/
+*.pyc
+
+# Entorno virtual (por si acaso)
+.venv/
+venv/

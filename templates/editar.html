@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar paciente - Centro Veterinario PatitasSanas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
+
+    <div class="contenedor">
+
+        <header class="cabecera">
+            <h1>Centro Veterinario PatitasSanas</h1>
+        </header>
+
+        <section class="tarjeta formulario">
+            <h2>Editar paciente</h2>
+
+            <form action="{{ url_for('actualizar', id_paciente=paciente['id']) }}" method="POST">
+
+                <div class="campo">
+                    <label for="nombre_mascota">Nombre de la mascota:</label>
+                    <input type="text" id="nombre_mascota" name="nombre_mascota"
+                           value="{{ paciente['nombre_mascota'] }}" required>
+                </div>
+
+                <div class="campo">
+                    <label for="especie">Especie:</label>
+                    <input type="text" id="especie" name="especie"
+                           value="{{ paciente['especie'] }}" required>
+                </div>
+
+                <div class="campo">
+                    <label for="edad">Edad:</label>
+                    <input type="number" id="edad" name="edad" min="0"
+                           value="{{ paciente['edad'] }}" required>
+                </div>
+
+                <div class="campo">
+                    <label for="nombre_propietario">Nombre del propietario:</label>
+                    <input type="text" id="nombre_propietario" name="nombre_propietario"
+                           value="{{ paciente['nombre_propietario'] }}" required>
+                </div>
+
+                <div class="campo">
+                    <label for="telefono_propietario">Teléfono del propietario:</label>
+                    <input type="text" id="telefono_propietario" name="telefono_propietario"
+                           value="{{ paciente['telefono_propietario'] }}" required>
+                </div>
+
+                <div class="acciones-editar">
+                    <button type="submit" class="btn btn-registrar">Guardar cambios</button>
+                    <a href="{{ url_for('index') }}" class="btn btn-cancelar">Cancelar</a>
+                </div>
+
+            </form>
+        </section>
+
+    </div>
+
+</body>
+</html>
